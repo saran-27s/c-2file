@@ -1,0 +1,51 @@
+/*You’re given an even number n. If n=4, you have to print the following pattern : 4444 4334 4334 4444 If n=6, then the pattern should be like this : 
+sample output /pattern : 
+666666 
+655556 
+654456 
+654456 
+655556 
+666666
+*/
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cout << "Enter the size of the matrix (n): ";
+    cin >> n;
+
+   
+    int size = n * 2 - 1;
+    int a[size][size];
+
+    int fr = 0;
+    int ba = size - 1;
+
+   
+    while (n > 0) {
+        for (int i = fr; i <= ba; ++i) {
+            for (int j = fr; j <= ba; ++j) {
+                if (i == fr || i == ba || j == fr || j == ba) {
+                    a[i][j] = n;
+                }
+            }
+        }
+        ++fr;
+        --ba;
+        --n;
+    }
+
+   
+    for (int i = 0; i < size; ++i) {
+        for (int j = 0; j < size; ++j) {
+            cout << a[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+
+
